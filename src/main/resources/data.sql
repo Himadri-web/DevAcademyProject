@@ -1,0 +1,2 @@
+Insert into patient(patient_Id,patient_Name,date_of_birth,gender,address,mobile_number) values(100,'Himadri','06/06/1985','M','Address1','9884473347');
+Insert into patient(patient_Id,patient_Name,date_of_birth,gender,address,mobile_number) values(200,'Rohit','06/12/1984','M','Address2','9884473348');
