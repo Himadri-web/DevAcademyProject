@@ -26,6 +26,7 @@ public class PatientController {
     PatientService patientService;
 
     /**
+     * This to fetch all patients information from database
      * @return This returns List of patient
      */
     @GetMapping("/patient")
@@ -35,6 +36,7 @@ public class PatientController {
     }
 
     /**
+     * This to fetch patient details based on patient Id
      * @param patientId It takes Patient Id as path variable
      * @return This returns patient details of the shared patient Id
      */
@@ -45,6 +47,7 @@ public class PatientController {
     }
 
     /**
+     * This is to add a new patient into system
      * @param patient It takes Patient details in the request body
      * @return This returns patient details after persisting into DB
      */
@@ -55,6 +58,7 @@ public class PatientController {
     }
 
     /**
+     * This to update patient details for a patient Id
      * @param patientId It takes Patient Id as path variable
      * @param patient It takes Patient details in the request body
      * @return This returns patient details of the updated patient
@@ -66,6 +70,7 @@ public class PatientController {
     }
 
     /**
+     * This to remove a patient from database based on patient Id
      * @param patientId It takes Patient Id as path variable
      * @return  This returns successful message if the patient removed successfully from DB
      *          Fail: It throws PatientDetailsNotFoundException

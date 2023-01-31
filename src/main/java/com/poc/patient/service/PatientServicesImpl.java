@@ -20,7 +20,7 @@ public class PatientServicesImpl implements PatientService {
     PatientRepository patientRepository;
 
     /**
-     *
+     * This is to add a new patient into system
      * @param patient It takes Patient details
      * @return It returns patient details after persisting into DB
      */
@@ -31,6 +31,7 @@ public class PatientServicesImpl implements PatientService {
     }
 
     /**
+     * This to fetch all patient information from database
      * @return This returns List of patient present in database
      */
     @Override
@@ -45,6 +46,7 @@ public class PatientServicesImpl implements PatientService {
     }
 
     /**
+     * This to remove a patient from database based on patient Id
      * @param patientId It takes Patient Id as argument
      * @return This returns successful message if the patient removed successfully from DB
      */
@@ -62,6 +64,7 @@ public class PatientServicesImpl implements PatientService {
     }
 
     /**
+     * This to update patient details for a patient Id
      * @param patientId It takes Patient Id as first parameter
      * @param patient It takes Patient details as second parameter
      * @return This returns patient details of the updated patient
@@ -76,6 +79,7 @@ public class PatientServicesImpl implements PatientService {
     }
 
     /**
+     * This to fetch patient details based on patient Id
      * @param patientId It takes Patient Id as path variable
      * @return This returns patient details of the shared patient Id
      */
