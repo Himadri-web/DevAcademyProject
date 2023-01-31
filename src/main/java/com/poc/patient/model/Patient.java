@@ -2,15 +2,23 @@ package com.poc.patient.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * @author HS106406
+ * This Patient class represents as Entity and Model class for holding patient details
+ */
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Patient {
 
     @JsonProperty
@@ -29,9 +37,15 @@ public class Patient {
     private Character gender;
 
     @JsonProperty
-    private String address;
+    //@OneToMany(targetEntity = Address.class, mappedBy = "patient", cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patientId_fk", referencedColumnName = "patientId")
+    private List<Address> address = new ArrayList<>();
 
     @JsonProperty
-    private String mobileNumber;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="patientId_fk", referencedColumnName = "patientId")
+    private List<Telephone>  mobileNumber = new ArrayList<>();
+    //private String mobileNumber;
 
 }
