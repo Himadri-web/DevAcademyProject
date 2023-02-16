@@ -82,6 +82,17 @@ public class PatientController {
     }
 
     /**
+     * This method used to fetch patients detail based on patient name contains match
+     * @param patientName
+     * @return This returns all the matched patients
+     */
+    @GetMapping("/patient/name/{patientName}")
+    public ResponseEntity<List<Patient>> getPatientsByName(@PathVariable String patientName){
+        log.info("Inside getPatientByName of PatientController");
+        return new ResponseEntity<>(patientService.getPatientsByName(patientName), HttpStatus.OK);
+    }
+
+    /**
      * @param pdnfe It takes PatientDetailsNotFoundException as first parameter
      * @param req It takes HttpServletRequest as second parameter
      * @return It returns ResponseEntity of APIErrorResponse

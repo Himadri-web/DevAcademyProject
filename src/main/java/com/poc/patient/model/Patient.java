@@ -38,14 +38,13 @@ public class Patient {
 
     @JsonProperty
     //@OneToMany(targetEntity = Address.class, mappedBy = "patient", cascade = CascadeType.PERSIST)
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "patientId_fk", referencedColumnName = "patientId")
     private List<Address> address = new ArrayList<>();
 
     @JsonProperty
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="patientId_fk", referencedColumnName = "patientId")
     private List<Telephone>  mobileNumber = new ArrayList<>();
-    //private String mobileNumber;
 
 }

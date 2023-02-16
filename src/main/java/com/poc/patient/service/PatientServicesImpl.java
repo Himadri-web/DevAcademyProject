@@ -90,4 +90,16 @@ public class PatientServicesImpl implements PatientService {
         );
         return patient;
     }
+
+    /**
+     * This to fetch patient details based on Patient Name
+     * @param patientName It takes Patient Name as path variable
+     * @return This returns patient details of the shared patient Name
+     */
+    @Override
+    public List<Patient> getPatientsByName(String patientName) {
+        return patientRepository.findByPatientNameContainingIgnoreCase(patientName);
+    }
+
+
 }

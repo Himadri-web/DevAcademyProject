@@ -21,7 +21,7 @@ import javax.persistence.Id;
 public class Telephone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer phoneId;
     private String phoneType;
     private String phoneNumber;

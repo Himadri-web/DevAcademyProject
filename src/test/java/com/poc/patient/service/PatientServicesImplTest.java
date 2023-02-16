@@ -11,6 +11,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,6 +95,14 @@ class PatientServicesImplTest {
         assertEquals(patients.size(), actual.size());
         assertDoesNotThrow(() -> testClass.getPatientDetails());
         verify(patientRepository, times(2)).findAll();
+    }
+    @Test
+    void getPatientsByName() {
+        List<Patient> patients = Arrays.asList(patient);
+        when(patientRepository.findByPatientNameContainingIgnoreCase(anyString())).thenReturn(patients);
+        List<Patient> actual = testClass.getPatientsByName("Himadri");
+        assertEquals(patients.size(), actual.size());
+        assertNotNull(actual);
     }
 
     @Test

@@ -133,4 +133,14 @@ class PatientControllerTest {
 
         verify(patientService, times(1)).removePatientById(anyInt());
     }
+
+    @Test
+    void getPatientsByName() {
+        List<Patient> patients = Arrays.asList(patient);
+        when(patientService.getPatientsByName(anyString())).thenReturn(patients);
+        ResponseEntity<List<Patient>> actual = patientController.getPatientsByName("Himadri");
+        assertEquals(patients.size(), actual.getBody().size());
+        assertNotNull(actual);
+        assertEquals(HttpStatus.OK.value(), actual.getStatusCodeValue());
+    }
 }

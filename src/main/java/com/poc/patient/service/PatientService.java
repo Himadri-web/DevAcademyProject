@@ -48,4 +48,13 @@ public interface PatientService {
      *         or Internal Server Error (status code 500)
      */
     Patient getPatientDetailById(Integer patientId);
+
+    /**
+     * This to fetch patient details based on Patient Name
+     * @param  patientName of the patient
+     * @return Success. Body contains the given name patients details. (status code 200)
+     *         or Patient Not Found for given ID. (status code 404)
+     *         or Internal Server Error (status code 500)
+     */
+    List<Patient> getPatientsByName(String patientName);
 }
